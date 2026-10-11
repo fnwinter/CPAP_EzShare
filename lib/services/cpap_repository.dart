@@ -30,8 +30,11 @@ class AppSettings {
 
   static Future<AppSettings> load() async {
     final p = await SharedPreferences.getInstance();
+    var baseUrl = p.getString('baseUrl') ?? defaultBaseUrl;
+    // 이전 버전의 기본 주소가 저장돼 있으면 새 기본 주소로 바꾼다.
+    if (baseUrl == 'http://192.168.4.1') baseUrl = defaultBaseUrl;
     return AppSettings(
-      baseUrl: p.getString('baseUrl') ?? defaultBaseUrl,
+      baseUrl: baseUrl,
       datalogPath: p.getString('datalogPath') ?? defaultDatalogPath,
     );
   }
