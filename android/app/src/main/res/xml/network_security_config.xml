@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- EzShare 는 HTTPS 를 지원하지 않으므로 평문 HTTP 를 허용한다.
+     설정 화면에서 주소를 바꿀 수 있으므로 전체 허용. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>
